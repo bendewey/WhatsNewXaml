@@ -1,0 +1,30 @@
+﻿<common:ExamplePage
+    x:Name="pageRoot"
+    x:Class="NewXaml.TimePickerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:NewXaml.Common"
+    xmlns:controls="using:NewXaml.Controls"
+    mc:Ignorable="d">
+
+    <controls:PageContent Header="TimePicker Sample" GoBackCommand="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}" Margin="0,8,0,-8">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TimePicker Header="Time" />
+                
+                <TimePicker Header="Time with Formatting"
+                            MinuteIncrement="10"
+                            ClockIdentifier="24HourClock"/>
+            </StackPanel>
+            <Border Grid.Row="1" Margin="20" Background="White">
+                <controls:CodeViewer x:Name="CodeViewer1" />
+            </Border>
+        </Grid>
+    </controls:PageContent>
+</common:ExamplePage>

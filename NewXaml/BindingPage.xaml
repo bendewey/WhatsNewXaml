@@ -1,0 +1,50 @@
+﻿<common:ExamplePage
+    x:Name="pageRoot"
+    x:Class="NewXaml.BindingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:NewXaml.Common"
+    xmlns:controls="using:NewXaml.Controls"
+    mc:Ignorable="d">
+
+    <controls:PageContent Header="Binding Examples" GoBackCommand="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                
+                <TextBlock Text="FallbackValue Property Binding" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8"/>
+                <TextBlock Text="{Binding Path=NotAValidProperty, FallbackValue=Fallback}" />
+
+                <TextBlock Text="TargetNullValue Property Binding" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8"/>
+                <TextBlock Text="{Binding Path=NullValueProperty, TargetNullValue=ValueWhenNull}" />
+
+                <TextBlock Text="UpdateSourceTrigger Property Binding" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8"/>
+                <TextBox Text="{Binding Path=ValidProperty, Mode=TwoWay, UpdateSourceTrigger=Explicit}" TextChanged="TextBox_TextChanged" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Value updated on TextChanged:" Margin="0,0,8,0" />
+                    <TextBlock Text="{Binding ValidProperty}"/>
+                </StackPanel>
+
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.ColumnSpan="4"  Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ListBox Style="{StaticResource CodeViewerTabListStyle}"
+                        SelectedItem="{Binding SelectedItem, ElementName=CodeFlipViewer1, Mode=TwoWay}"
+                        ItemsSource="{Binding ItemsSource, ElementName=CodeFlipViewer1}">
+                </ListBox>
+                <Border Grid.Row="1" Background="White">
+                    <FlipView x:Name="CodeFlipViewer1" ItemTemplate="{StaticResource CodeViewerDataTemplate}" />
+                </Border>
+            </Grid>
+        </Grid>
+    </controls:PageContent>
+    
+</common:ExamplePage>

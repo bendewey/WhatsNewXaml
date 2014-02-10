@@ -1,0 +1,34 @@
+﻿<Page.BottomAppBar>
+    <AppBar>
+        <StackPanel Orientation="Horizontal">
+            <AppBarButton Label="Add Friend" Icon="AddFriend" />
+            <AppBarButton Label="Add Friend">
+                <AppBarButton.Icon>
+                    <SymbolIcon Symbol="AddFriend" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Boat Symbol">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segue UI Symbol" Glyph="&#x26F4;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Add">
+                <AppBarButton.Icon>
+                    <PathIcon>
+                        <PathIcon.Data>
+                            <GeometryGroup>
+                                <RectangleGeometry Rect="4,19,30,3"/>
+                                <RectangleGeometry Rect="19,4,3,30"/>
+                            </GeometryGroup>
+                        </PathIcon.Data>
+                    </PathIcon>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Windows Logo">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="windows-8-logo.png" Margin="6"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </StackPanel>
+    </AppBar>
+</Page.BottomAppBar>

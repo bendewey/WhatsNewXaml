@@ -1,0 +1,55 @@
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Windows.UI.Xaml.Controls;
+
+namespace NewXaml
+{
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class BindingPage
+    {
+        public BindingPage()
+        {
+            this.InitializeComponent();
+
+            DataContext = new BindingPageViewModel();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textbox = sender as TextBox;
+            if (textbox == null) return;
+
+            var expression = textbox.GetBindingExpression(TextBox.TextProperty);
+            if (expression != null)
+            {
+                expression.UpdateSource();    
+            }
+        }
+    }
+
+    public class BindingPageViewModel : INotifyPropertyChanged
+    {
+        private string _validProperty;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string NullValueProperty { get; set; }
+
+        public string ValidProperty
+        {
+            get { return _validProperty; }
+            set
+            {
+                _validProperty = value;
+                OnPropertyChanged();
+            }
+        }
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+}

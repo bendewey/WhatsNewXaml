@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Example HTML document</title>
+    <script type="text/javascript">
+        function SendNotification() {
+            var msg = document.getElementById('message').value;
+            window.external.notify(msg);
+        }
+    </script>
+</head>
+<body>
+    <h2>Script Notify</h2>
+    <input id="message" type="text" value="message" />
+    <button onclick="SendNotification()">Send</button>
+</body>
+</html>

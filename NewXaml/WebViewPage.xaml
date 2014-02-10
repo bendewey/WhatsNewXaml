@@ -1,0 +1,58 @@
+﻿<common:ExamplePage
+    x:Name="pageRoot"
+    x:Class="NewXaml.WebViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:NewXaml.Common"
+    xmlns:controls="using:NewXaml.Controls"
+    mc:Ignorable="d">
+
+    <controls:PageContent Header="WebView Improvements" GoBackCommand="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}" Margin="0,8,0,-8">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="Transforms and Opacity" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,8" />
+                <WebView Source="http://dev.windows.com" Height="150" Width="200" HorizontalAlignment="Left" Opacity="0.5">
+                    <WebView.RenderTransform>
+                        <CompositeTransform SkewX="45" />
+                    </WebView.RenderTransform>
+                </WebView>               
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Local Navigation" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,8" />
+                <WebView Source="ms-appx-web:///WebViewPageSample1.html" Height="150" Width="200" HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Custom Stream Navigation (with Script Notify)" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,8" />
+                <WebView Name="WebViewLocal" ScriptNotify="WebViewLocal_OnScriptNotify" Height="150" Width="200" HorizontalAlignment="Left" />
+                <TextBlock Name="ScriptNotifyResult" Style="{StaticResource SubtitleTextBlockStyle}" />
+            </StackPanel>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="4"  Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ListBox Style="{StaticResource CodeViewerTabListStyle}"
+                        SelectedItem="{Binding SelectedItem, ElementName=CodeFlipViewer1, Mode=TwoWay}"
+                        ItemsSource="{Binding ItemsSource, ElementName=CodeFlipViewer1}">
+                </ListBox>
+                <Border Grid.Row="1" Background="White">
+                    <FlipView x:Name="CodeFlipViewer1" ItemTemplate="{StaticResource CodeViewerDataTemplate}" />
+                </Border>
+            </Grid>
+        </Grid>
+    </controls:PageContent>
+</common:ExamplePage>

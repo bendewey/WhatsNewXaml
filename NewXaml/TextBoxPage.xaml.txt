@@ -1,0 +1,16 @@
+﻿<TextBox Header="Header for ComboBox, DatePicker, TimePicker, Slider, and edit controls" Margin="8"/>
+
+<TextBox Header="Placeholder for ComboBox, DatePicker, TimePicker, Slider, and edit controls" 
+            PlaceholderText="Placeholder" Margin="8"/>
+                
+<TextBox Header="Selection Color" 
+            SelectionHighlightColor="Pink" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." Margin="8"/>
+
+<TextBlock Text="Hyperlink" Style="{StaticResource SubtitleTextBlockStyle}" Margin="8"/>
+<TextBlock Margin="8">
+    <TextBlock.Inlines>
+        <Run>Lorem ipsum dolor sit amet, </Run>
+        <Hyperlink NavigateUri="http://dev.windows.com">consectetur</Hyperlink>
+        <Run> adipiscing elit.</Run>
+    </TextBlock.Inlines>
+</TextBlock>

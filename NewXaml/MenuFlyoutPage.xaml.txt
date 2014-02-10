@@ -1,0 +1,10 @@
+﻿<Button Content="Button with MenuFlyout">
+    <Button.Flyout>
+        <MenuFlyout Placement="Bottom">
+            <MenuFlyoutItem Text="Menu option 1" />
+            <MenuFlyoutItem Text="Second command" />
+            <MenuFlyoutSeparator />
+            <ToggleMenuFlyoutItem Text="Last option" />
+        </MenuFlyout>
+    </Button.Flyout>
+</Button>

@@ -1,0 +1,6 @@
+﻿<DatePicker Header="Date" />
+
+<DatePicker Header="Date with Formatting"
+            DayFormat="{}{day.integer} ({dayofweek.full})"
+            MonthFormat="{}{month.integer}"
+            YearVisible="False"/>

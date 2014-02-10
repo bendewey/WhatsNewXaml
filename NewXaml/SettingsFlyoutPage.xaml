@@ -1,0 +1,38 @@
+﻿<common:ExamplePage
+    x:Name="pageRoot"
+    x:Class="NewXaml.SettingsFlyoutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:NewXaml.Common"
+    xmlns:controls="using:NewXaml.Controls"
+    mc:Ignorable="d">
+
+    <controls:PageContent Header="SettingsFlyout Sample" GoBackCommand="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <Button Content="Register Settings" Click="Register_OnClick" />
+                <Button Content="Show Settings" Click="ShowSettings_OnClick" />
+            </StackPanel>
+            <Grid Grid.Row="1" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ListBox Style="{StaticResource CodeViewerTabListStyle}"
+                        SelectedItem="{Binding SelectedItem, ElementName=CodeFlipViewer1, Mode=TwoWay}"
+                        ItemsSource="{Binding ItemsSource, ElementName=CodeFlipViewer1}">
+                </ListBox>
+                <Border Grid.Row="1" Background="White">
+                    <FlipView x:Name="CodeFlipViewer1" ItemTemplate="{StaticResource CodeViewerDataTemplate}" />
+                </Border>
+            </Grid>
+        </Grid>
+    </controls:PageContent>
+    
+</common:ExamplePage>

@@ -1,0 +1,33 @@
+﻿<Page.BottomAppBar>
+    <CommandBar>
+        <CommandBar.PrimaryCommands>
+            <AppBarButton Icon="Cut" Label="Cut"/>
+            <AppBarButton Icon="Copy" Label="Copy"/>
+            <AppBarButton Icon="Paste" Label="Paste"/>
+            <AppBarButton Icon="Edit" Label="Edit"/>
+            <AppBarButton Icon="Delete" Label="Delete"/>
+        </CommandBar.PrimaryCommands>
+        <CommandBar.SecondaryCommands>
+            <AppBarButton Label="Location">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#xE1C4;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Accounts">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#xE168;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Logout">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#xE192;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Settings">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#xE115;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar.SecondaryCommands>
+    </CommandBar>
+</Page.BottomAppBar>

@@ -1,0 +1,29 @@
+﻿<Button Content="Button with Flyout">
+    <Button.Flyout>
+        <Flyout>
+            <StackPanel>
+                <TextBlock Text="Which Pill Do You Choose?" />
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Red" />
+                    <Button Content="Blue" />
+                </StackPanel>
+            </StackPanel>
+        </Flyout>
+    </Button.Flyout>
+</Button>
+
+<Button Content="Button with Flyout Placement (Right)">
+    <Button.Flyout>
+        <Flyout Placement="Right">
+
+        </Flyout>
+    </Button.Flyout>
+</Button>
+
+<Button Content="Button with Flyout Placement (Full)">
+    <Button.Flyout>
+        <Flyout Placement="Full">
+
+        </Flyout>
+    </Button.Flyout>
+</Button>

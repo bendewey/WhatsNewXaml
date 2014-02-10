@@ -1,0 +1,19 @@
+﻿<StackPanel>
+    <TextBlock Text="Transforms and Opacity" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,8" />
+    <WebView Source="http://dev.windows.com" Height="150" Width="200" HorizontalAlignment="Left" Opacity="0.5">
+        <WebView.RenderTransform>
+            <CompositeTransform SkewX="45" />
+        </WebView.RenderTransform>
+    </WebView>               
+</StackPanel>
+
+<StackPanel Grid.Column="1">
+    <TextBlock Text="Local Navigation" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,8" />
+    <WebView Source="ms-appx-web:///WebViewPageSample1.html" Height="150" Width="200" HorizontalAlignment="Left" />
+</StackPanel>
+
+<StackPanel Grid.Column="2">
+	<TextBlock Text="Custom Stream Navigation (with Script Notify)" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,8" />
+    <WebView Name="WebViewLocal" ScriptNotify="WebViewLocal_OnScriptNotify" Height="150" Width="200" HorizontalAlignment="Left" />
+    <TextBlock Name="ScriptNotifyResult" Style="{StaticResource SubtitleTextBlockStyle}" />
+</StackPanel>

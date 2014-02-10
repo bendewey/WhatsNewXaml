@@ -1,0 +1,21 @@
+﻿<Border Margin="20" Padding="20" RequestedTheme="Dark" BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderThickness="1">
+    <StackPanel>
+        <TextBlock Text="This text is inside the dark theme" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,16"/>
+        <TextBox PlaceholderText="Text Placeholder" Text="Dark" />
+    </StackPanel>
+</Border>
+
+<Border Margin="20" Padding="20" Grid.Column="1" RequestedTheme="Light" BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderThickness="1">
+    <StackPanel>
+        <TextBlock Text="This text is inside the light theme" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,16"/>
+        <TextBox PlaceholderText="Text Placeholder" Text="Light" />
+    </StackPanel>
+</Border>
+
+<Border x:Name="DynamicThemeContainer"  Margin="20" Padding="20" Grid.Column="2" RequestedTheme="Light" BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderThickness="1">
+    <StackPanel>
+        <TextBlock Text="This text is inside the dynamic theme" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,16"/>
+        <TextBox PlaceholderText="Text Placeholder" Text="Text" />
+        <Button Content="Switch" Click="SwitchTheme_OnClick" />
+    </StackPanel>
+</Border>

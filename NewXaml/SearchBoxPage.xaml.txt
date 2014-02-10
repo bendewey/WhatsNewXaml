@@ -1,0 +1,2 @@
+﻿<SearchBox Width="300" HorizontalAlignment="Left" QuerySubmitted="SearchBox_OnQuerySubmitted"
+                           SuggestionsRequested="SearchBox_OnSuggestionsRequested" />                

@@ -1,0 +1,5 @@
+﻿<TimePicker Header="Time" />
+                
+<TimePicker Header="Time with Formatting"
+            MinuteIncrement="10"
+            ClockIdentifier="24HourClock"/>

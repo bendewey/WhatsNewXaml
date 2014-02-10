@@ -1,0 +1,2 @@
+﻿<MediaElement Height="260" HorizontalAlignment="Center" Source="/Assets/Wildlife.mp4" 
+AreTransportControlsEnabled="True"/>

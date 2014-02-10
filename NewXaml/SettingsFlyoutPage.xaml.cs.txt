@@ -1,0 +1,18 @@
+﻿private void Register_OnClick(object sender, RoutedEventArgs e)
+{
+    SettingsPane.GetForCurrentView().CommandsRequested += (s, arg) =>
+    {
+        SettingsCommand defaultsCommand = new SettingsCommand("general", "General",
+            (handler) =>
+            {
+                GeneralSettingsFlyout sf = new GeneralSettingsFlyout();
+                sf.Show();
+            });
+        arg.Request.ApplicationCommands.Add(defaultsCommand);
+    };
+}
+
+private void ShowSettings_OnClick(object sender, RoutedEventArgs e)
+{
+    SettingsPane.Show();
+}

@@ -1,0 +1,12 @@
+﻿<TextBlock Text="FallbackValue Property Binding" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8"/>
+<TextBlock Text="{Binding Path=NotAValidProperty, FallbackValue=Fallback}" />
+
+<TextBlock Text="TargetNullValue Property Binding" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8"/>
+<TextBlock Text="{Binding Path=NullValueProperty, TargetNullValue=ValueWhenNull}" />
+
+<TextBlock Text="UpdateSourceTrigger Property Binding" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8"/>
+<TextBox Text="{Binding Path=ValidProperty, Mode=TwoWay, UpdateSourceTrigger=Explicit}" TextChanged="TextBox_TextChanged" />
+<StackPanel Orientation="Horizontal">
+    <TextBlock Text="Value updated on TextChanged:  " />
+    <TextBlock Text="{Binding ValidProperty}"/>
+</StackPanel>
