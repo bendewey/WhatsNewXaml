@@ -1,0 +1,8 @@
+﻿<StackPanel>
+    <TextBlock Text="Depth"/>
+    <TextBlock x:Name="Depth"/>
+                
+    <Button Content="Navigate" Click="Navigate_Click" />
+
+    <Button Content="Unwind BackStack" Click="Unwind_Click" />
+</StackPanel>

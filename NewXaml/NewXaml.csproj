@@ -113,6 +113,10 @@
       <DependentUpon>BindingPage.xaml</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="NavigationPage.xaml.cs">
+      <DependentUpon>NavigationPage.xaml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="GridViewPage.xaml.cs">
       <DependentUpon>GridViewPage.xaml</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -214,6 +218,7 @@
     <Content Include="BindingPage.xaml.cs.txt" />
     <Content Include="CommandBarPage.xaml.txt" />
     <Content Include="BindingPage.xaml.txt" />
+    <Content Include="NavigationPage.xaml.txt" />
     <Content Include="GridViewPage.xaml.txt" />
     <Content Include="FlyoutPage.xaml.txt" />
     <Content Include="Assets\background.jpg" />
@@ -240,6 +245,7 @@
     </EmbeddedResource>
     <Content Include="FrozenGridPage.xaml.txt" />
     <Content Include="MediaElementPage.xaml.txt" />
+    <Content Include="NavigationPage.xaml.cs.txt" />
     <Content Include="ThemingPage.xaml.txt" />
     <Content Include="ThemingPage.xaml.cs.txt" />
     <Content Include="WebViewPageSample2.html" />
@@ -259,6 +265,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="BindingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="NavigationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

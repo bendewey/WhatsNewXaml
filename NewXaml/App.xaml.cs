@@ -14,7 +14,7 @@ namespace NewXaml
     /// </summary>
     sealed partial class App : Application
     {
-        private Frame _rootFrame;
+        public Frame RootFrame { get; set; }
         private Type[] _assemblyTypes;
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace NewXaml
                 var type = ResolveView(protocolArgs.Uri.Host);
                 if (type != null)
                 {
-                    _rootFrame.Navigate(type);
+                    RootFrame.Navigate(type);
                 }
             }
         }
@@ -68,18 +68,18 @@ namespace NewXaml
             }
 #endif
 
-            _rootFrame = Window.Current.Content as Frame;
+            RootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (_rootFrame == null)
+            if (RootFrame == null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
-                _rootFrame = new Frame();
+                RootFrame = new Frame();
                 // Set the default language
-                _rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
+                RootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
 
-                _rootFrame.NavigationFailed += OnNavigationFailed;
+                RootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -87,15 +87,15 @@ namespace NewXaml
                 }
 
                 // Place the frame in the current Window
-                Window.Current.Content = _rootFrame;
+                Window.Current.Content = RootFrame;
             }
 
-            if (_rootFrame.Content == null)
+            if (RootFrame.Content == null)
             {
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                _rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                RootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();
