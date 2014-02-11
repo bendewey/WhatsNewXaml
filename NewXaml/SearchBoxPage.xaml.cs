@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
@@ -113,9 +114,18 @@ namespace NewXaml
 
         private void SearchBox_OnSuggestionsRequested(SearchBox sender, SearchBoxSuggestionsRequestedEventArgs e)
         {
-            
             var upperQuery = e.QueryText.ToUpperInvariant();
-            e.Request.SearchSuggestionCollection.AppendQuerySuggestions(Fruits.Where(s => s.ToUpperInvariant().StartsWith(upperQuery)));
+            if (upperQuery.Length > 0)
+            {
+                if (upperQuery[0] == 'B')
+                {
+                    var stream = Windows.Storage.Streams.RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/40Banana.png"));
+                    e.Request.SearchSuggestionCollection.AppendResultSuggestion("Banana", "See full details on bananas", "banana", stream, "banana icon");
+                    e.Request.SearchSuggestionCollection.AppendSearchSeparator("");    
+                }
+
+                e.Request.SearchSuggestionCollection.AppendQuerySuggestions(Fruits.Where(s => s.ToUpperInvariant().StartsWith(upperQuery)));    
+            }
         }
     }
 }
