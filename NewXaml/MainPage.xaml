@@ -72,7 +72,7 @@
             <controls:Separator Width="350" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="6" />
             <StackPanel Margin="20,0" Grid.Row="2" Grid.Column="6">
                 <Button Content="Navigation" Click="Navigate_Click" Tag="NewXaml.NavigationPage" />
-                <Button Content="RenderTargetBitmap" Click="Navigate_Click" Tag="NewXaml.RenderTargetBitmapPage" />
+                <Button Content="RenderTargetBitmap" Click="Navigate_Click" Tag="NewXaml.RenderBitmapPage" />
             </StackPanel>
         </Grid>
     </controls:PageContent>

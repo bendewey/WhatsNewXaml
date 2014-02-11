@@ -1,0 +1,8 @@
+﻿<Grid x:Name="Meme" Height="200" Width="200" HorizontalAlignment="Left">
+    <Image Source="/Assets/meme.jpg" Stretch="Uniform"/>
+    <TextBlock Text="{Binding Text, ElementName=Content}" Foreground="White" FontSize="20" VerticalAlignment="Bottom" TextAlignment="Center" TextWrapping="Wrap" />
+</Grid>
+                
+<TextBox x:Name="Content" />
+                
+<Button Content="Share" Click="Share_Click" />

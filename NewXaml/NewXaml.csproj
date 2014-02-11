@@ -113,6 +113,10 @@
       <DependentUpon>BindingPage.xaml</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="RenderBitmapPage.xaml.cs">
+      <DependentUpon>RenderBitmapPage.xaml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="NavigationPage.xaml.cs">
       <DependentUpon>NavigationPage.xaml</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -215,9 +219,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\40Banana.png" />
+    <Content Include="Assets\meme.jpg" />
     <Content Include="BindingPage.xaml.cs.txt" />
     <Content Include="CommandBarPage.xaml.txt" />
     <Content Include="BindingPage.xaml.txt" />
+    <Content Include="RenderBitmapPage.xaml.txt" />
+    <Content Include="RenderBitmapPage.xaml.cs.txt" />
     <Content Include="NavigationPage.xaml.txt" />
     <Content Include="GridViewPage.xaml.txt" />
     <Content Include="FlyoutPage.xaml.txt" />
@@ -265,6 +272,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="BindingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="RenderBitmapPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

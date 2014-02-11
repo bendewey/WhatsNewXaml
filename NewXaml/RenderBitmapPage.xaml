@@ -1,0 +1,47 @@
+﻿<common:ExamplePage
+    x:Name="pageRoot"
+    x:Class="NewXaml.RenderBitmapPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:NewXaml.Common"
+    xmlns:controls="using:NewXaml.Controls"
+    mc:Ignorable="d">
+
+    <controls:PageContent Header="Navigation Sample" GoBackCommand="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="280" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                
+                <Grid x:Name="Meme" Height="200" Width="200" HorizontalAlignment="Left">
+                    <Image Source="/Assets/meme.jpg" Stretch="Uniform"/>
+                    <TextBlock Text="{Binding Text, ElementName=Content}" Foreground="White" FontSize="20" VerticalAlignment="Bottom" TextAlignment="Center" TextWrapping="Wrap" />
+                </Grid>
+                
+                <TextBox x:Name="Content" />
+                
+                
+                <Button Content="Share" Click="Share_Click" />
+
+            </StackPanel>
+            <Grid Grid.Row="1" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ListBox Style="{StaticResource CodeViewerTabListStyle}"
+                        SelectedItem="{Binding SelectedItem, ElementName=CodeFlipViewer1, Mode=TwoWay}"
+                        ItemsSource="{Binding ItemsSource, ElementName=CodeFlipViewer1}">
+                </ListBox>
+                <Border Grid.Row="1" Background="White">
+                    <FlipView x:Name="CodeFlipViewer1" ItemTemplate="{StaticResource CodeViewerDataTemplate}" />
+                </Border>
+            </Grid>
+        </Grid>
+    </controls:PageContent>
+    
+</common:ExamplePage>
