@@ -1,7 +1,7 @@
 ﻿<Page.BottomAppBar>
     <AppBar>
         <StackPanel Orientation="Horizontal">
-            <AppBarButton Label="Add Friend" Icon="AddFriend" />
+            <AppBarButton Label="Admin" Icon="Admin" />
             <AppBarButton Label="Add Friend">
                 <AppBarButton.Icon>
                     <SymbolIcon Symbol="AddFriend" />
