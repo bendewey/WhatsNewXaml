@@ -16,6 +16,11 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="NewXaml.App">
       <m2:VisualElements DisplayName="WhatsNewXaml" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="WhatsNewXaml" ForegroundText="light" BackgroundColor="#141414">
+        <m2:DefaultTile ShortName="New XAML">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
       </m2:VisualElements>
       <Extensions>
