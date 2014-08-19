@@ -223,6 +223,7 @@
     <Content Include="BindingPage.xaml.cs.txt" />
     <Content Include="CommandBarPage.xaml.txt" />
     <Content Include="BindingPage.xaml.txt" />
+    <Content Include="GridViewPage.xaml.cs.txt" />
     <Content Include="RenderBitmapPage.xaml.txt" />
     <Content Include="RenderBitmapPage.xaml.cs.txt" />
     <Content Include="NavigationPage.xaml.txt" />

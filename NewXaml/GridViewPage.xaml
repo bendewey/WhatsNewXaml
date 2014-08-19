@@ -12,21 +12,23 @@
     <controls:PageContent Header="GridView Performance Improvements" GoBackCommand="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="250" />
+                <RowDefinition Height="350" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.Resources>
                 <CollectionViewSource x:Key="ViewSource" Source="{Binding Groups}" IsSourceGrouped="True" ItemsPath="Items" />
             </Grid.Resources>
-            <GridView ItemsSource="{Binding Source={StaticResource ViewSource}}">
+            <GridView ItemsSource="{Binding Source={StaticResource ViewSource}}"
+                      ShowsScrollingPlaceholders="False"
+                      ContainerContentChanging="GridView_OnContainerContentChanging">
                 <GridView.GroupStyle>
                     <GroupStyle>
                         <GroupStyle.HeaderTemplate>
                             <DataTemplate>
                                 <Grid Margin="1,0,0,6">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Title}" Margin="3,-7,10,10" Style="{StaticResource HeaderTextBlockStyle}" />
-                                        <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource HeaderTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding Title}" Margin="3,3,10,10" Style="{StaticResource HeaderTextBlockStyle}" />
+                                        <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,3,0,10" Style="{StaticResource HeaderTextBlockStyle}"/>
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>
@@ -41,15 +43,28 @@
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Image Source="{Binding Image}" Height="80" Width="80" />
-                            <TextBlock Text="{Binding Title}" Style="{StaticResource CaptionTextBlockStyle}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                            <Rectangle x:Name="placeholderRect" Fill="DeepPink" />
+                            <Grid>
+                                <Image x:Name="itemImage" Height="80" Width="80" />
+                                <TextBlock x:Name="itemTitle" Style="{StaticResource CaptionTextBlockStyle}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                            </Grid>
                         </Grid>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
-            <Border Grid.Row="1" Margin="20" Background="White">
-                <controls:CodeViewer x:Name="CodeViewer1" />
-            </Border>
+            <Grid Grid.Row="1" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ListBox Style="{StaticResource CodeViewerTabListStyle}"
+                        SelectedItem="{Binding SelectedItem, ElementName=CodeFlipViewer1, Mode=TwoWay}"
+                        ItemsSource="{Binding ItemsSource, ElementName=CodeFlipViewer1}">
+                </ListBox>
+                <Border Grid.Row="1" Background="White">
+                    <FlipView x:Name="CodeFlipViewer1" ItemTemplate="{StaticResource CodeViewerDataTemplate}" />
+                </Border>
+            </Grid>
         </Grid>
     </controls:PageContent>
     

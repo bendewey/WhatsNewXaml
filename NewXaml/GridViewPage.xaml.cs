@@ -1,5 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Shapes;
 
 namespace NewXaml
 {
@@ -13,6 +18,59 @@ namespace NewXaml
             this.InitializeComponent();
 
             DataContext = new GridViewPageViewModel();
+        }
+
+        private void GridView_OnContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+            args.Handled = true;
+
+            if (args.Phase == 0)
+            {
+                var templateRoot = args.ItemContainer.ContentTemplateRoot as Grid;
+                var placeholder = templateRoot.FindName("placeholderRect") as Rectangle;
+                var itemTitle = templateRoot.FindName("itemTitle") as TextBlock;
+                var itemImage = templateRoot.FindName("itemImage") as Image;
+
+                placeholder.Opacity = 1;
+                itemTitle.Opacity = 0;
+                itemImage.Opacity = 0;
+
+                args.RegisterUpdateCallback(ShowTitle);
+            }
+        }
+
+        private void ShowTitle(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+            if (args.Phase == 1)
+            {
+                var item = args.Item as Item;
+
+                var templateRoot = args.ItemContainer.ContentTemplateRoot as Grid;
+                var itemTitle = templateRoot.FindName("itemTitle") as TextBlock;
+
+                Task.Delay(1).Wait();
+                itemTitle.Text = item.Title;
+                itemTitle.Opacity = 1;
+
+                args.RegisterUpdateCallback(ShowImage);
+            }
+        }
+
+        private void ShowImage(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+            if (args.Phase == 2)
+            {
+                var item = args.Item as Item;
+
+                var templateRoot = args.ItemContainer.ContentTemplateRoot as Grid;
+                var itemImage = templateRoot.FindName("itemImage") as Image;
+
+                Task.Delay(1).Wait();
+                itemImage.Source = new BitmapImage(new Uri(item.Image));
+                itemImage.Opacity = 1;
+
+                // no further
+            }
         }
     }
 
